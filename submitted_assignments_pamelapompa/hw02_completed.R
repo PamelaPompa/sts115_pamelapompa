@@ -140,6 +140,8 @@ Paste the output from R into a comment and explain why you think it provided tha
   
       head(our_data)
       tail(our_data)
+      head(our_data, N) --> N is up to the first N rows
+      tail(our_data, N) --> N is up to the last N rows
       nrow(our_data)
       ncol(our_data)
       
