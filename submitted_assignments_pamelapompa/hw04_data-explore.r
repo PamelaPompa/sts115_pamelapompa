@@ -91,8 +91,10 @@
 
 # 6. Load the dogs data from the `dogs.rds` file provided in lecture.
 #
-      dogs <- readRDS("./data/dogs.RDS") # this is how I load the file
+
+      #dogs <- readRDS("../data/dogs.RDS") # this is how I load the file
       
+
 #     a. How many missing values are in the `height` column? 
 #       [code completion + comprehension]
       
