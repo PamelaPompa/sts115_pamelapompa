@@ -17,7 +17,7 @@
 
 ###############################################################################
 
-craigslist <- read.csv("data/cl_rentals.csv")
+craigslist <- read.csv("../data/cl_rentals.csv")
 
 # 1. What is Deviation a measure of? [comprehension]
 
@@ -104,9 +104,10 @@ craigslist <- read.csv("data/cl_rentals.csv")
 #    c. Use an apply function to apply your function to all of the columns in
 #       the Craigslist data set. Include the result in your answer.
 #       [code completion + comprehension]
-        
-          missing_all_columns <- sapply(craigslist, function(x) count_na(x))
+          
+          missing_all_columns <- apply(craigslist, 2, function(x) count_na(x))
           print(missing_all_columns)
+
           
           #title      text      latitude    longitude     city    date_posted    date_updated   price 
           #0            0           3            3         952         0            1801         35 
@@ -115,16 +116,18 @@ craigslist <- read.csv("data/cl_rentals.csv")
           #shp_place     shp_city    shp_state   shp_county 
           #24              650          3            3 
           
-          #'sapply' is a function that takes every element of a data object and applies
-          #them into another function. Its first argument is the data object that it will
-          #be taking the elements from; in our case we will plug in the 'craigslist' data frame.
-          #The second argument is another function; this other function is the one that
-          #sapply will be applying every element in the data object into. In this case, we are applying
-          #the function I made, count_na(x)
+          #'apply' is a function that takes subsets of data (e.g., rows or columns) from a data object and applies
+          # them into another function. Its first argument is the data object that it will
+          # be taking the subsets from; in our case, we will plug in the 'craigslist' data frame.
+          # The second argument specifies whether to apply the function to rows (1) or columns (2);
+          #here, we'll use 2 to apply to columns.
+          # The third argument is another function; this other function is the one that
+          # 'apply' will be applying to each subset in the data object. In this case, we are applying
+          # the function I made, count_na(x)
 #
 #    d. Which columns have 0 missing values? [comprehension]
+          
           #title, text, date_posted, deleted, laundry, parking, craigslist
-
 
 
 # 5. What time period does this data cover? Hint: convert the `date_posted`
